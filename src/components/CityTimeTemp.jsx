@@ -32,7 +32,7 @@ const CityTimeTemp = ({ currentWeather, isCelsius }) => {
         <p className="text-xl py-2">{time}</p>
       </div>
       <div className="flex items-center">
-        <p className="text-4xl pb-4 font-semibold">{isCelsius ? `${currentWeather.celsius}°C` : `${currentWeather.fahrenheit}°F`}</p>
+        <p className="text-4xl pb-4 font-semibold">{isCelsius ? `${currentWeather.celsius} °C` : `${currentWeather.fahrenheit} °F`}</p>
       </div>
     </div>
   )

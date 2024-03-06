@@ -18,7 +18,8 @@ import logo13n from '../icons/13n.svg';
 import logo50d from '../icons/50d.svg';
 import logo50n from '../icons/50n.svg';
 
-const WeeklyForecast = ({ currentWeather, isCelsius }) => {
+
+const WeeklyForecast = ({ currentWeather, isCelsius, innerContainer }) => {
   const [loading, setLoading] = useState(false);
   const [weeklyData, setWeeklyData] = useState([]);
 
@@ -87,8 +88,7 @@ const WeeklyForecast = ({ currentWeather, isCelsius }) => {
 
   return (
     <>
-      {/* <ul className={`grid sm:grid-cols-1 md:grid-cols-2 lg:flex sm:flex-row gap-1 justify-center overflow-x-auto w-7/12 sm:w-10/12 rounded-md  mx-auto mt-0 my-10 p-4 font-medium shadow-md ${innerContainer} bg-opacity-30`}> */}
-      <ul className="">
+      <ul className={`grid sm:grid-cols-1 md:grid-cols-2 lg:flex sm:flex-row gap-1 justify-center overflow-x-auto w-7/12 sm:w-10/12 rounded-md  mx-auto mt-0 my-10 p-4 font-medium shadow-md ${innerContainer} bg-opacity-30`}>
         {weeklyData.slice(1).map((data, index) => {
           return (
             <li key={index} className="text-center flex flex-col items-center rounded-xl p-2">
@@ -101,9 +101,9 @@ const WeeklyForecast = ({ currentWeather, isCelsius }) => {
                 height={80} 
               />
               {isCelsius ? (
-                <p className="pt-2 text-lg">H : {data.maxTempCelsius}°C  L : {data.minTempCelsius}°C</p>
+                <p className="pt-2 text-lg">{data.maxTempCelsius}°C / {data.minTempCelsius}°C</p>
               ) : (
-                <p className="pt-2 text-lg">H : {data.maxTempFahrenheit}°F  L : {data.minTempFahrenheit}°F</p>
+                <p className="pt-2 text-lg">{data.maxTempFahrenheit}°F / {data.minTempFahrenheit}°F</p>
               )}
               <p className="py-2 mt-0 text-lg">Pre : {data.precipitationProbability}%</p>
             </li>
